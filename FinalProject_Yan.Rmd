@@ -62,9 +62,24 @@ Fringing reefs are widely distributed in the tropical and subtropical zones acro
 
 Fringing reefs can be easily observed from the satellite images in Google Earth. The differences of fringing reefs can be observed along the latitude (*Fig 1.*) or the different side of island. In this project, we would quantify several morphological traits of fringing reefs and try to explore their connection with environmental factors and biology. The spurs and grooves are the most distinct features in the fringing reefs.
 
-研究問題
+## Significant of project
+
+- know more about how might structure of habitats maintain the biodiversity.
+- figure out the distribution and the pattern of the morphological traits of fringing reefs can benefit the marine resources and coastal management. 
+- provide more quantified data for the other biological models.
+- provide a new assessment for evaluating the condition of habitats.
+
+We are going to answer following questions:
+
+1. How is the **morphology of fringing reefs** distributed geographically? What are the differences along the latitude?
+
+2. Is the morphology of fringing reefs correlated with the **biodiversity**?
+
+3. What is the **relation** between morphology of fringing reefs, biodiversity and environmental conditions?
 
 ## Method
+
+
 
 選19個，測站跨越南北半球，緯度介於南瑋23~北緯26之間
 biogeographic realm在中西太平，測站是有完整的天然礁岩海岸的小島或環礁
@@ -80,7 +95,7 @@ biogeographic realm在中西太平，測站是有完整的天然礁岩海岸的�
 ## Result
 
 結果
-SST會影響礁體(SST和緯度的相關性)，對密度的影響最為明顯
+我們的測站SST和緯度的相關性，SST會影響礁體，對密度的影響最為明顯
 
 槽溝長和群礁寬有相關
 槽溝與群礁越長越寬 生物總數越少
@@ -292,3 +307,14 @@ fig7 <- GGally::ggpairs(data = df_sst)
 
 討論
 密度影響明顯的原因可能是高緯的礁體容易破碎
+
+## Reference
+
+[^4]: [Dai, C. F. (1993). Patterns of coral distribution and benthic space partitioning on the fringing reefs of southern Taiwan. Marine Ecology, 14(3), 185-204.](https://doi.org/10.1111/j.1439-0485.1993.tb00479.x)
+
+[^2]: [Duce, S., Vila-Concejo, A., Hamylton, S. M., Webster, J. M., Bruce, E., & Beaman, R. J. (2016). A morphometric assessment and classification of coral reef spur and groove morphology. Geomorphology, 265, 68-83.](https://doi.org/10.1016/j.geomorph.2016.04.018)
+
+[^3]: [Kennedy, D. M., & Woodroffe, C. D. (2002). Fringing reef growth and morphology: a review. Earth-Science Reviews, 57(3-4), 255-277.](https://doi.org/10.1016/S0012-8252(01)00077-0)
+
+[^1]: [Menard, A., Turgeon, K., Roche, D. G., Binning, S. A., & Kramer, D. L. (2012). Shelters and their use by fishes on fringing coral reefs. PloS one, 7(6), e38450.](https://doi.org/10.1371/journal.pone.0038450)
+
