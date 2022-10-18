@@ -1,0 +1,20 @@
+Site_ID,temp,ecoregion,realm,size_class,total_number,biomass,site_name,date,time,temp_1002,temp_1009,depth
+S1,25.75,South Kuroshio,Central Indo-Pacific,10.46116505,1008,36538.6268,Sesoko Beach,5/9/2012,11:00:00,21.5,30,6
+S2,25.75,Hawaii,Eastern Indo-Pacific,15.29255319,245,29826.7905,Pupukea3,5/4/2012,13:00:00,24.5,27,5
+S3,29.15,Marshall Islands,Eastern Indo-Pacific,13.57876712,914,48045.8271,Arbar Island,7/19/2014,9:00:00,28.2,30.1,5
+S6,29.4,Samoa Islands,Eastern Indo-Pacific,13.52272727,656,40298.8939,Pago Pago Harbour east ,8/26/2012,14:00:00,29.8,29,5
+S7,29.45,Samoa Islands,Eastern Indo-Pacific,13.31349206,771,69135.6237,Ofu Harbour,8/20/2012,14:00:00,29.8,29.1,4
+S8,28.4,Society Islands,Eastern Indo-Pacific,10.17857143,1170,30426.6557,Moorea Baie de Cook Channel Entrance,7/21/2012,15:00:00,29.6,27.2,5
+S11,27.45,Southern Cook/Austral Islands,Eastern Indo-Pacific,11.44230769,731,40080.3442,"Avatiu W, Rarotonga",8/1/2012,15:00:00,28.3,26.6,10
+S13,28.75,Society Islands,Eastern Indo-Pacific,11.73076923,1283,77897.5114,Passe Avapehi,7/8/2009,NA,30,27.5,5
+S14,28.45,Society Islands,Eastern Indo-Pacific,10.6626506,303,17675.4308,Papeete Dock,7/1/2009,NA,29.7,27.2,2.1
+S15,28.5,Society Islands,Eastern Indo-Pacific,13.98854962,5206,64222.52,Fakarava Bommie,6/20/2009,NA,29.9,27.1,6.5
+S16,28.45,Tuamotos,Eastern Indo-Pacific,7.5,600,104800.8608,Toau Bommie 3,7/4/2012,8:00:00,29.7,27.2,4.5
+S19,28.15,Tuamotos,Eastern Indo-Pacific,13.75,2838,68327.3079,Makemo Outside NW Pass,6/8/2012,13:00:00,29.3,27,5
+S20,28.85,Samoa Islands,Eastern Indo-Pacific,12.14285714,1021,67706.623,Niuatoputapu motu1,9/1/2012,13:00:00,29.3,28.4,6
+S21,26.95,Tonga Islands,Central Indo-Pacific,10.52816901,1707,27483.845,Euaiki2,9/15/2012,13:00:00,27.6,26.3,4
+S22,28.25,Tonga Islands,Central Indo-Pacific,15.15957447,588,54060.9094,Alofi,9/12/2011,NA,28.8,27.7,3
+S24,26.1,Central and Southern Great Barrier Reef,Central Indo-Pacific,14.43181818,1436,104387.6457,Broomfield Reef Site 2,10/5/2015,13:00:00,29,23.2,8
+S25,25.95,Central and Southern Great Barrier Reef,Central Indo-Pacific,10.12605042,2318,31306.4127,Lady Musgrave West,6/6/2015,13:00:00,28.9,23,5
+S26,29.15,Marshall Islands,Eastern Indo-Pacific,15.51948052,2441,93544.3738,Rongalap Airport,7/18/2014,15:00:00,28.2,30.1,5
+S27,28.9,Marshall Islands,Eastern Indo-Pacific,12.09731544,882,41752.9508,Ailuk Nth Pass Outside,7/17/2014,14:00:00,28.1,29.7,5.5

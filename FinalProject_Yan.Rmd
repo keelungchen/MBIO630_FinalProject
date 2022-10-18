@@ -1,0 +1,294 @@
+---
+title: "FinalProject_Yan"
+author: "Yan"
+date: "`r Sys.Date()`"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(cowplot)
+library(ggplot2)
+library(tidyverse)
+library(readxl)
+library(dplyr)
+```
+
+```{r data import and reorganize, echo=TRUE, results='hold', include=FALSE}
+# import data
+data_LG <-read.csv("data/Length_G.csv")
+data_RF <-read.csv("data/Rugosity_F.csv")
+data_WF <-read.csv("data/Width_F.csv")
+data_WG <-read.csv("data/Width_G.csv")
+data_FR <-read.csv("data/FR_data.csv")
+data_bio <- read.csv("data/BIO_data.csv")
+
+# mean groove length
+data_LG %>%
+  group_by(Site_ID) %>%
+  summarise_at(vars(Length_G), list(G_length = mean)) -> LG_mean 
+# coastline Rugosity
+data_RF$rugosity <- data_RF$Length / 600 
+CL_rugosity <- data.frame(data_RF$Site_ID,data_RF$rugosity)
+colnames(CL_rugosity) <- c('Site_ID','Rugosity') 
+ # mean fringing width
+data_WF %>%
+  group_by(Site_ID) %>%
+  summarise_at(vars(Length), list(F_width = mean)) -> WF_mean
+# mean groove width
+data_WG %>%
+  group_by(Site_ID) %>%
+  summarise_at(vars(Length), list(G_width = mean)) -> WG_mean 
+# calculate groove density
+LG_density <- table(data_LG$Site_ID) / 0.6
+LG_density <- data.frame(LG_density)
+colnames(LG_density) <- c('Site_ID','Density') 
+
+# merge data
+df_list <- list(data_FR,LG_mean,LG_density,WG_mean,WF_mean,CL_rugosity,data_bio)
+df_all <- df_list %>% reduce(full_join, by='Site_ID')
+df_all <- df_all[-c(2),] # remove outliner sites: S2
+head(df_all)
+
+```
+
+## Abstract
+
+
+
+## Introduction
+
+Fringing reefs are widely distributed in the tropical and subtropical zones across the world. The structure of fringing reefs provide the habitats for the intertidal and subtidal organisms (*Menard et al. 2012* [^1]). Meanwhile, the morphology of fringing reefs are shaped by the reef-building organisms and the environment factors (*Duce et al. 2016* [^2]). Previous researches have studied the growth and morphology of fringing reefs from geology aspect (*Kennedy and Woodroffe 2002* [^3]) and the bathymetric distribution of corals on the fringing reefs (*Dai 1993* [^4]). But the connection between biodiversity and morphology of fringing reefs and their geographical differences has not been studied.    
+
+Fringing reefs can be easily observed from the satellite images in Google Earth. The differences of fringing reefs can be observed along the latitude (*Fig 1.*) or the different side of island. In this project, we would quantify several morphological traits of fringing reefs and try to explore their connection with environmental factors and biology. The spurs and grooves are the most distinct features in the fringing reefs.
+
+研究問題
+
+## Method
+
+選19個，測站跨越南北半球，緯度介於南瑋23~北緯26之間
+biogeographic realm在中西太平，測站是有完整的天然礁岩海岸的小島或環礁
+根據緯度絕對值將測站排序依次命名，刪掉其中一個槽溝太寬的離群值
+股哥地球 高解析度衛星圖 ，套入ARCGIS PRO， 線圖徵計算
+群礁的型態 槽溝長 寬 密度、海岸寬、海岸粗糙度
+水溫資料來自ARCGIS的資料庫 溫度是2010 2月及9月的平均
+生物資料來自RLS，固定深度在3~8間，調查月份6~9月年份在2009、2012、2014、2015，時間在11:00~15:00
+
+用R做相關性分析
+
+
+## Result
+
+結果
+SST會影響礁體(SST和緯度的相關性)，對密度的影響最為明顯
+
+槽溝長和群礁寬有相關
+槽溝與群礁越長越寬 生物總數越少
+
+生物量和型態的關係是最不明顯的，可能是因為生物量的測量方法是用估計的關係，所以不是很準確
+
+平均體型在漕溝寬度和密度有相反的關係，越密集體型越小(體型與緯度越高也有相關性)，越寬體型越大
+
+
+```{r analyze data, echo=TRUE, results='hold', include=FALSE}
+
+#calculate correlation between morphological traits and latitude
+cor_1 <- list()
+for (i in 1:5) {
+  cor_1[i] <- cor(df_all[,i+7],df_all[,6])
+}
+cor_1 <- as.numeric(cor_1)
+cor_1 <- round(cor_1,2)
+cor_1
+
+slope_1 <- list()
+for (i in 1:5) {
+  mod <- lm(df_all[,6] ~ df_all[,i+7])
+  cf <- coef(mod)
+  slope_1[i] <- cf[2]
+}
+slope_1 <- as.numeric(slope_1)
+slope_1 <- round(slope_1,2)
+slope_1
+
+# Fig.1 relation between morphological traits and latitude
+
+annotation <- data.frame(
+  ylabel = c("Groove length (m)","Groove density (/km)","Groove width (m)","Fringing reef width (m)", "Coastline Rugosity","SST")
+)
+
+plot_list <- list()
+for (i in 1:5) {
+  df <- data.frame(
+    x = df_all[,3],
+    y = df_all[,i+7],
+    label = df_all[,7] #lat rank
+  )
+  p <- ggplot(data = df, aes(abs(x), y))+
+  geom_point(shape=21)+
+  geom_smooth(method="lm", colour="black", size=0.5)+
+  theme_light()+
+  geom_text(hjust=0, vjust=0, label = df$label)+
+  labs(subtitle = paste0("R=", cor_1[[i]]))+
+  xlab("Latitude")+
+  ylab(annotation$ylabel[i])
+  plot_list[[i]] <- p
+}
+fig1 <- plot_grid(plot_list[[1]],plot_list[[2]],plot_list[[3]],plot_list[[4]],plot_list[[5]],align="h")
+fig1
+
+#calculate correlation between morphological traits and temperature
+cor_1_1 <- list()
+for (i in 1:5) {
+  cor_1_1[i] <- cor(df_all[,i+7],df_all[,24])
+}
+cor_1_1 <- as.numeric(cor_1_1)
+cor_1_1 <- round(cor_1_1,2)
+cor_1_1
+
+slope_1_1 <- list()
+for (i in 1:5) {
+  mod <- lm(df_all[,24] ~ df_all[,i+7])
+  cf <- coef(mod)
+  slope_1_1[i] <- cf[2]
+}
+slope_1_1 <- as.numeric(slope_1_1)
+slope_1_1 <- round(slope_1_1,2)
+slope_1_1
+
+# Fig.1_1 relation between morphological traits and temperature
+
+plot_list <- list()
+for (i in 1:5) {
+  df <- data.frame(
+    x = df_all[,24],
+    y = df_all[,i+7],
+    label = df_all[,7] #lat rank
+  )
+  p <- ggplot(data = df, aes(abs(x), y))+
+  geom_point(shape=21)+
+  geom_smooth(method="lm", colour="black", size=0.5)+
+  theme_light()+
+  geom_text(hjust=0, vjust=0, label = df$label)+
+  labs(subtitle = paste0("R=", cor_1_1[[i]]))+
+  xlab("SST")+
+  ylab(annotation$ylabel[i])
+  plot_list[[i]] <- p
+}
+fig1_1 <- plot_grid(plot_list[[1]],plot_list[[2]],plot_list[[3]],plot_list[[4]],plot_list[[5]],align="h")
+fig1_1
+
+# Fig.2 relation between morphological traits and total observation number
+cor_2 <- list()
+for (i in 1:6) {
+  cor_2[i] <- cor(df_all[,i+7],df_all[,17])
+}
+cor_2 <- as.numeric(cor_2)
+cor_2 <- round(cor_2,2)
+
+plot_list <- list()
+for (i in 1:6) {
+  df <- data.frame(
+    x = df_all[,i+7],
+    y = df_all[,17],
+    label = df_all[,7] # lat rank
+  )
+  p <- ggplot(data = df, aes(x, y))+
+  geom_point(shape=21)+
+  geom_smooth(method="lm", colour="black", size=0.5)+
+  theme_light()+
+  geom_text(hjust=0, vjust=0, label = df$label)+
+  labs(subtitle = paste0("R=", cor_2[[i]]))+
+  xlab(annotation$ylabel[i])+
+  ylab("total_number")
+  plot_list[[i]] <- p
+}
+fig2 <- plot_grid(plot_list[[1]],plot_list[[2]],plot_list[[3]],plot_list[[4]],plot_list[[5]],plot_list[[6]],align="h")
+fig2
+
+# Fig.3 relation between morphological traits and Biomass
+cor_3 <- list()
+for (i in 1:6) {
+  cor_3[i] <- cor(df_all[,i+7],df_all[,18])
+}
+cor_3 <- as.numeric(cor_3)
+cor_3 <- round(cor_3,2)
+
+plot_list <- list()
+for (i in 1:6) {
+  df <- data.frame(
+    x = df_all[,i+7],
+    y = df_all[,18],
+    label = df_all[,7]
+  )
+  p <- ggplot(data = df, aes(x, y))+
+  geom_point(shape=21)+
+  geom_smooth(method="lm", colour="black", size=0.5)+
+  theme_light()+
+  geom_text(hjust=0, vjust=0, label = df$label)+
+  labs(subtitle = paste0("R=", cor_3[[i]]))+
+  xlab(annotation$ylabel[i])+
+  ylab("Biomass")
+  plot_list[[i]] <- p
+}
+fig3 <- plot_grid(plot_list[[1]],plot_list[[2]],plot_list[[3]],plot_list[[4]],plot_list[[5]],plot_list[[6]],align="h")
+fig3
+
+# Fig.4 relation between morphological traits and Size class
+cor_4 <- list()
+for (i in 1:6) {
+  cor_4[i] <- cor(df_all[,i+7],df_all[,16])
+}
+cor_4 <- as.numeric(cor_4)
+cor_4 <- round(cor_4,2)
+
+plot_list <- list()
+for (i in 1:6) {
+  df <- data.frame(
+    x = df_all[,i+7],
+    y = df_all[,16],
+    label = df_all[,7]
+  )
+  p <- ggplot(data = df, aes(x, y))+
+  geom_point(shape=21)+
+  geom_smooth(method="lm", colour="black", size=0.5)+
+  theme_light()+
+  geom_text(hjust=0, vjust=0, label = df$label)+
+  labs(subtitle = paste0("R=", cor_4[[i]]))+
+  xlab(annotation$ylabel[i])+
+  ylab("Size class")
+  plot_list[[i]] <- p
+}
+fig4 <- plot_grid(plot_list[[1]],plot_list[[2]],plot_list[[3]],plot_list[[4]],plot_list[[5]],plot_list[[6]],align="h")
+fig4
+
+#Fig5 cmake a pair plot to check the relation within morphological traits
+df_m <- data.frame(df_all[,8],df_all[,9],df_all[,10],df_all[,11],df_all[,12])
+colnames(df_m) <- c('Groove length','Groove density','Groove width','Fringing reef width','Coastline rugosity') 
+fig5 <- GGally::ggpairs(data = df_m)
+fig5
+
+#Fig6 make a pair plot to check the relation between lat and biodiversity
+head(df_all)
+df_b <- data.frame(df_all[,6],df_all[,16],df_all[,17],df_all[,18])
+colnames(df_b) <- c('Latitude','size_class','total_number','biomass') 
+fig6 <- GGally::ggpairs(data = df_b)
+fig6
+
+#Fig7 make a pair plot to check the relation between SST and biodiversity
+head(df_all)
+df_sst <- data.frame(df_all[,24],df_all[,16],df_all[,17],df_all[,18])
+colnames(df_sst) <- c('SST','size_class','total_number','biomass') 
+fig7 <- GGally::ggpairs(data = df_sst)
+
+#型態之間的相關性
+#緯度和生物多樣性間的相關
+#如何做進一步統計分析?分群?
+
+```
+
+
+## Discussion
+
+討論
+密度影響明顯的原因可能是高緯的礁體容易破碎

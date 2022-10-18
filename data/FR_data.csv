@@ -1,0 +1,20 @@
+﻿Site_ID,site_name,lat,Habitated,Type,Abs_lat,lat_rank
+S1,Sesoko,26.667,H,I,26.667,19
+S2,Pupukea,21.667,H,I,21.667,16
+S3,Arbar,11.167,U,A,11.167,2
+S6,Pago,-14.267,H,I,14.267,5
+S7,Ofu,-14.183,H,I,14.183,4
+S8,Moorea,-17.5,H,I,17.5,11
+S11,Rarotonga,-21.333,H,I,21.333,15
+S13,Passe,-16.667,H,I,16.667,10
+S14,Papeete,-17.5,H,I,17.5,11
+S15,Fakarava,-16.167,U,A,16.167,8
+S16,Toau,-16,U,A,16,7
+S19,Makemo,-16.5,U,A,16.5,9
+S20,Niuatoputapu,-15.9,H,I,15.9,6
+S21,Euaiki,-21.117,U,I,21.117,14
+S22,Limu,-18.95,H,I,18.95,13
+S24,Broomfield,-23.25,U,R,23.25,17
+S25,Lady Musgrave,-23.917,U,R,23.917,18
+S26,Rongalap,11.167,U,A,11.167,2
+S27,Ailuk,10.333,U,A,10.333,1
