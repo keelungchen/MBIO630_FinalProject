@@ -1,5 +1,5 @@
 ---
-title: "FinalProject_Yan"
+title: "The geographical distribution of the fringing reefs morphology and its correlation with biological data in Middle and Western Pacific"
 author: "Yan"
 date: "`r Sys.Date()`"
 output: github_document
@@ -56,15 +56,12 @@ annotation <- data.frame(
 
 ```
 
-## Abstract
-
-
 
 ## Introduction
 
 Fringing reefs are widely distributed in the tropical and subtropical zones across the world. The structure of fringing reefs provide the habitats for the intertidal and subtidal organisms (*Menard et al. 2012* [^1]). Meanwhile, the morphology of fringing reefs are shaped by the reef-building organisms and the environment factors (*Duce et al. 2016* [^2]). Previous researches have studied the growth and morphology of fringing reefs from geology aspect (*Kennedy and Woodroffe 2002* [^3]) and the bathymetric distribution of corals on the fringing reefs (*Dai 1993* [^4]). But the connection between biodiversity and morphology of fringing reefs and their geographical differences has not been studied.    
 
-Fringing reefs can be easily observed from the satellite images in Google Earth. The differences of fringing reefs can be observed along the latitude. The spurs and grooves are the most distinct features in the fringing reefs, which can be quatified morphologically. In this project, we would measure several morphological traits of fringing reefs and try to explore their connection with environmental factors and biology. We are going to answer following questions: 
+Fringing reefs can be easily observed from the satellite images in Google Earth. The differences of fringing reefs can be observed along the latitude. The spurs and grooves structure is a distinct feature in the fringing reefs, which can be quatified morphologically. In this project, we would measure several morphological traits of fringing reefs and try to explore their connection with environmental factors and biological data. We are going to answer following questions: 
 
 1. How is the **morphology of fringing reefs** distributed geographically? What are the differences along the latitude?
 

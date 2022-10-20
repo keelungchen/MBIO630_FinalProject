@@ -1,4 +1,5 @@
-FinalProject_Yan
+The geographical distribution of the fringing reefs morphology and its
+correlation with biological data in Middle and Western Pacific
 ================
 Yan
 2022-10-19
@@ -20,11 +21,11 @@ fringing reefs and their geographical differences has not been studied.
 
 Fringing reefs can be easily observed from the satellite images in
 Google Earth. The differences of fringing reefs can be observed along
-the latitude. The spurs and grooves are the most distinct features in
+the latitude. The spurs and grooves structure is a distinct feature in
 the fringing reefs, which can be quatified morphologically. In this
 project, we would measure several morphological traits of fringing reefs
 and try to explore their connection with environmental factors and
-biology. We are going to answer following questions:
+biological data. We are going to answer following questions:
 
 1.  How is the **morphology of fringing reefs** distributed
     geographically? What are the differences along the latitude?
