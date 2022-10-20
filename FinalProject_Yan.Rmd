@@ -1,5 +1,5 @@
 ---
-title: "The geographical distribution of the fringing reefs morphology and its correlation with biological data in Middle and Western Pacific"
+title: "The geographical differences of the fringing reefs morphology and its correlation with biological data in Middle and Western Pacific"
 author: "Yan"
 date: "`r Sys.Date()`"
 output: github_document
@@ -72,7 +72,7 @@ Fringing reefs can be easily observed from the satellite images in Google Earth.
 
 ## Method
 
-- We chose 19 sites (*Fig.1*) to analyze the relation between morphological traits of fringing reefs and biological abundance, and their difference across latitude.  
+- We chose 19 sites (*Fig.1*) to analyze the correlation between morphological traits of fringing reefs and biological data, and its geographical difference across latitude.  
 
 - The latitude of our study sites range from 23°S to 26°N. They are islands and atolls across northern and southern hemisphere. Nature coastline and fringing reefs are present in all of our sites. 
 
@@ -318,7 +318,7 @@ Fig.6 Relation between morphological traits and average size class of fish
 
 - The unobvious correlation between biomass and morphological traits (*Fig.3*) might be due to the methodology of fish survey in RLS database. Among three of our biological data, only biomass is estimated data that can not be measured by the observer directly. Therefore, the actual correlation might not be shown because of the low precision of the measurement of biomass in RLS data.
 
-- Wider groove width have positive correlation with average size class of fish (*Fig.6 C*) because wider groove might be a more more suitable shelter and hunting ground for larger fish. On the other hand, groove density is negatively correlated (*Fig.6 B*). The reason might be its high correlation with SST (*Fig.3 B*), which is opposite to Bergmann's law. The composition of fish species should be further analyzed in our study.
+- Wider groove width have positive correlation with average size class of fish (*Fig.6 C*) because wider groove might be a more more suitable shelter and hunting ground for larger fish. On the other hand, groove density is negatively correlated (*Fig.6 B*). The reason might be its high correlation with SST (*Fig.3 B*). However, this result is opposite to Bergmann's law. The composition of fish species should be further analyzed in our study.
 
 - The morphology of fringing reefs shows the correlation with total fish number and average size class, and their correlation even higher than environmental factor (*Fig.4*,*Fig.6*). Our result suggests that the morphology of fringing reefs might be an important factor to shape the fish community.
 

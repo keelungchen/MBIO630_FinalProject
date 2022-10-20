@@ -1,10 +1,8 @@
-The geographical distribution of the fringing reefs morphology and its
+The geographical differences of the fringing reefs morphology and its
 correlation with biological data in Middle and Western Pacific
 ================
 Yan
 2022-10-19
-
-## Abstract
 
 ## Introduction
 
@@ -38,9 +36,9 @@ biological data. We are going to answer following questions:
 
 ## Method
 
--   We chose 19 sites (*Fig.1*) to analyze the relation between
-    morphological traits of fringing reefs and biological abundance, and
-    their difference across latitude.
+-   We chose 19 sites (*Fig.1*) to analyze the correlation between
+    morphological traits of fringing reefs and biological data, and its
+    geographical difference across latitude.
 
 -   The latitude of our study sites range from 23°S to 26°N. They are
     islands and atolls across northern and southern hemisphere. Nature
@@ -162,9 +160,9 @@ fish
     of fish (*Fig.6 C*) because wider groove might be a more more
     suitable shelter and hunting ground for larger fish. On the other
     hand, groove density is negatively correlated (*Fig.6 B*). The
-    reason might be its high correlation with SST (*Fig.3 B*), which is
-    opposite to Bergmann’s law. The composition of fish species should
-    be further analyzed in our study.
+    reason might be its high correlation with SST (*Fig.3 B*). However,
+    this result is opposite to Bergmann’s law. The composition of fish
+    species should be further analyzed in our study.
 
 -   The morphology of fringing reefs shows the correlation with total
     fish number and average size class, and their correlation even
