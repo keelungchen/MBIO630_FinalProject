@@ -78,17 +78,20 @@ biological data. We are going to answer following questions:
 -   The statistics was analyzed by using R (ver 4.2.1). The function
     ‘cor’ was applied to calculate the Pearson correlation coefficient.
 
-![Fig1](output/sites_temp.PNG) Fig.1 The map of study sites. The red
-dots indicate the location of study sites. The sites were named from
-1\~19 based on their latitudinal ranking (No.1 means the lowest latitude
-site). There are two sites in the same latitude, so their ID are the
-same. The color of basemap shows the sea surface temperature in
-February, 2010.
+![Fig1](output/sites_temp.PNG)
 
-![Fig2](output/Sites_fig.jpg) Fig.2 The measurement of morphological
-traits in each site. Black and white stripe is the 600m scale bar. Red
-line is groove length. Yellow line is groove width. Pink line is
-fringing reef width. Green line is coastline rugosity.
+Fig.1 The map of study sites. The red dots indicate the location of
+study sites. The sites were named from 1\~19 based on their latitudinal
+ranking (No.1 means the lowest latitude site). There are two sites in
+the same latitude, so their ID are the same. The color of basemap shows
+the sea surface temperature in February, 2010.
+
+![Fig2](output/Sites_fig.jpg)
+
+Fig.2 The measurement of morphological traits in each site. Black and
+white stripe is the 600m scale bar. Red line is groove length. Yellow
+line is groove width. Pink line is fringing reef width. Green line is
+coastline rugosity.
 
 ## Result
 
@@ -116,16 +119,20 @@ fringing reef width. Green line is coastline rugosity.
     biological data (*Fig.4*,*Fig.6*).
 
 ![](FinalProject_Yan_files/figure-gfm/data%20explore-1-1.png)<!-- -->
+
 Fig.3 Relation between morphological traits and temperature
 
 ![](FinalProject_Yan_files/figure-gfm/data%20explore-2-1.png)<!-- -->
+
 Fig.4 Relation between morphological traits and total observation number
 of fish
 
 ![](FinalProject_Yan_files/figure-gfm/data%20explore-3-1.png)<!-- -->
+
 Fig.5 Relation between morphological traits and total biomass of fish
 
 ![](FinalProject_Yan_files/figure-gfm/data%20explore-4-1.png)<!-- -->
+
 Fig.6 Relation between morphological traits and average size class of
 fish
 
